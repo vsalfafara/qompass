@@ -1,12 +1,4 @@
 
-body {
-   overflow-x: hidden;
-}
-
-body.overflowYhidden {
-   overflow-y: hidden;
-}
-
 .preload * {
    -webkit-transition: none !important;
    -moz-transition: none !important;
@@ -76,12 +68,13 @@ nav {
    height: 100%;
    width: 80%;
    right: -80%;
-   z-index: 999;
+   z-index: 10;
    text-align: right;
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 15px;
    transition: .3s;
+   pointer-events: none;
 
    ul {
       padding: 0 20px !important;
@@ -91,6 +84,13 @@ nav {
 
       li {
          margin: 20px 0;
+
+         a {
+            text-decoration: none;
+            color: #E3D6C4;
+            pointer-events: auto;
+            transition: .2s;
+         }
       }
    }
 }
@@ -130,9 +130,33 @@ nav.show {
    }
 }
 
+main {
+   height: 100vh;
+   width: 100vw;
+   overflow-y: scroll;
+   scroll-behavior: smooth;
+   perspective: 2px;
+   transform-style: preserve-3d;
+}
+
+main.overflowYhidden {
+   overflow-y: hidden;
+}
+
 section {
    box-sizing: border-box;
    padding: 5em 0;
+}
+
+section:not(.hero) {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.hero, .how_we_started, .get_in_touch {
+   height: 100vh;
 }
 
 .header {
@@ -152,10 +176,10 @@ section {
 .hero {
    position: relative;
    background-color: #1F2229;
-   height: 100vh;
    display: flex;
    align-items: flex-end;
    justify-content: center;
+   overflow: hidden;
 
    .logo {
       position: absolute;
@@ -185,19 +209,20 @@ section {
          text-align: center;
       }
    }
-}
 
-.hero::before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 0;
-   height: 100%;
-   width: 100%;
-   background-image: url('images/Compass.jpg');
-   background-size: cover;
-   background-position: 50%;
-   opacity: 0.1;
+   &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('images/Compass.jpg');
+      background-size: cover;
+      background-position: 50%;
+      transform: translateZ(-2px) scale(2);
+      opacity: 0.1;
+   }
 }
 
 .services {
@@ -246,23 +271,28 @@ section {
 
 .how_we_started {
    position: relative;
-   color: #9D8159;
-   background: rgba(0,0,0,0.5);
+   display: flex;
+   align-items: flex-end;
+   justify-content: center;
    overflow: hidden;
+   color: #9D8159;
+   background-color: #1F2229;
+   transform-style: preserve-3d;
+
 
    &:before {
       content: '';
       position: absolute;
-      height: 100%;
-      width: 100%;
       top: 0;
       left: 0;
+      right: 0;
+      bottom: 0;
       background-image: url('images/plant.jpg');
       background-size: cover;
-      background-position: 50% 0;
-      transform: scale(1.1);
-      filter: blur(3px) saturate(.5);
-      z-index: -1;
+      background-position: 50%;
+      transform: translateZ(-2px) scale(3);
+      opacity: .2;
+      filter: saturate(50%);
    }
 
    .subtext {
@@ -270,6 +300,8 @@ section {
       max-width: calc(100vw - 100px);
       min-width: 200px;
       width: 500px;
+      z-index: 2;
+
       p {
          font-family: 'Karla', sans-serif;
          text-align: center;
@@ -339,9 +371,8 @@ section {
       height: 100%;
       background: url('images/Business.jpg') no-repeat;
       background-size: cover;
-      background-position: 50% 0;
-      transform: scale(1.1);
-      filter: blur(3px);
+      background-position: 50%;
+      transform: translateZ(-2px) scale(5);
       z-index: -1;
    }
 }
@@ -472,7 +503,7 @@ section {
 
    nav {
       padding: 0;
-      width: 100%;
+      width: calc(100% - 17px);
       left: 0;
       transition: 0s;
       height: auto;
@@ -496,6 +527,45 @@ section {
          li {
             font-size: 10px;
             margin: 20px;
+
+            a {
+               position: relative;
+               display: flex;
+               flex-direction: column;
+               padding: 5px 10px;
+               text-align: center;
+               transition: all .2s;
+
+               &::before {
+                  content: '';
+                  position: absolute;
+                  height: .5px;
+                  width: 0;
+                  top: 0;
+                  right: 0;
+                  background: #E3D6C4;
+                  transition: width .2s;
+               }
+
+               &::after {
+                  content: '';
+                  position: absolute;
+                  height: .5px;
+                  width: 0;
+                  bottom: 0;
+                  left: 0;
+                  background: #E3D6C4;
+                  transition: width .2s;
+               }
+
+               &:hover::before {
+                  width: 100%;
+               }
+
+               &:hover::after {
+                  width: 100%;
+               }
+            }
          }
       }
    }
@@ -509,6 +579,10 @@ section {
       .text {
          font-size: 30px;
       }
+   }
+
+   section:not(.sync) {
+      height: 100vh;
    }
 
    .hero {
@@ -530,7 +604,7 @@ section {
          }
          p {
             text-align: right;
-            font-size: 20px;
+            font-size: 15px;
             letter-spacing: 2px;
          }
       }
@@ -578,7 +652,7 @@ section {
 
             .description {
                box-sizing: border-box;
-               text-align: justify;
+               text-align: left;
                padding: 0 40px;
             }
          }

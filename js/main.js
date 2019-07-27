@@ -3,6 +3,7 @@ window.onload = () => {
    document.body.classList.remove('preload')
 
    const menu = document.querySelector('.menu')
+   const main = document.querySelector('main')
    const line1 = document.querySelector('.line:nth-child(1)')
    const line2 = document.querySelector('.line:nth-child(2)')
    const line3 = document.querySelector('.line:nth-child(3)')
@@ -14,8 +15,6 @@ window.onload = () => {
          logo.style.display = "none"
       else
          logo.style.display = "block"
-
-      console.log('checking width')
    }
 
    checkWindowWidth()
@@ -25,11 +24,11 @@ window.onload = () => {
       line2.classList.toggle('hide')
       line3.classList.toggle('rotatesecond')
       nav.classList.toggle('show')
-      document.body.classList.toggle('overflowYhidden')
+      main.classList.toggle('overflowYhidden')
    })
 
-   window.onscroll = () => {
-      if (document.documentElement.scrollTop)
+   main.onscroll = () => {
+      if (main.scrollTop)
          nav.classList.add('background-transparent-black')
       else
          nav.classList.remove('background-transparent-black')
