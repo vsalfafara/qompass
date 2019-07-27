@@ -8,6 +8,7 @@ window.onload = () => {
    const line2 = document.querySelector('.line:nth-child(2)')
    const line3 = document.querySelector('.line:nth-child(3)')
    const nav = document.querySelector('nav')
+   const links = document.querySelectorAll('nav ul li a')
    const logo = nav.querySelector('.logo')
 
    const checkWindowWidth = () => {
@@ -17,14 +18,24 @@ window.onload = () => {
          logo.style.display = "block"
    }
 
-   checkWindowWidth()
-
-   menu.addEventListener('click', () => {
+   const toggleNavClasses = () => {
       line1.classList.toggle('rotatefirst')
       line2.classList.toggle('hide')
       line3.classList.toggle('rotatesecond')
       nav.classList.toggle('show')
       main.classList.toggle('overflowYhidden')
+   }
+
+   checkWindowWidth()
+
+   menu.addEventListener('click', () => {
+      toggleNavClasses()
+   })
+
+   links.forEach(link => {
+      link.addEventListener('click', () => {
+         toggleNavClasses()
+      })
    })
 
    main.onscroll = () => {
