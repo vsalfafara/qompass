@@ -1,5 +1,6 @@
 
 window.onload = () => {
+
    document.body.classList.remove('preload')
 
    const menu = document.querySelector('.menu')
@@ -11,6 +12,15 @@ window.onload = () => {
    const links = document.querySelectorAll('nav ul li a')
    const logo = nav.querySelector('.logo')
 
+   const elemsAnimation = document.querySelectorAll('.on-delay-animation')
+
+   const isInViewport = (elem) => {
+      var bounding = elem.getBoundingClientRect();
+      const offset = 600
+
+      return bounding.top < offset
+   };
+
    const checkWindowWidth = () => {
       if (window.innerWidth < 768)
          logo.style.display = "none"
@@ -19,11 +29,13 @@ window.onload = () => {
    }
 
    const toggleNavClasses = () => {
-      line1.classList.toggle('rotatefirst')
-      line2.classList.toggle('hide')
-      line3.classList.toggle('rotatesecond')
-      nav.classList.toggle('show')
-      main.classList.toggle('overflowYhidden')
+      if (window.innerWidth < 768) {
+         line1.classList.toggle('rotatefirst')
+         line2.classList.toggle('maincss_hide')
+         line3.classList.toggle('rotatesecond')
+         nav.classList.toggle('maincss_show')
+         main.classList.toggle('overflowYhidden')
+      }
    }
 
    checkWindowWidth()
@@ -43,6 +55,11 @@ window.onload = () => {
          nav.classList.add('background-transparent-black')
       else
          nav.classList.remove('background-transparent-black')
+
+      elemsAnimation.forEach(elem => {
+         if (isInViewport(elem))
+            elem.classList.add('animate')
+      })
    }
 
    window.onresize = () => {

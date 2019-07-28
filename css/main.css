@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .preload * {
   -webkit-transition: none !important;
   transition: none !important;
@@ -160,6 +164,7 @@ main {
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-perspective: 2px;
           perspective: 2px;
@@ -174,7 +179,8 @@ main.overflowYhidden {
 section {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 5em 0;
+  padding: 8em 0;
+  overflow: hidden;
 }
 
 section:not(.hero) {
@@ -193,8 +199,8 @@ section:not(.hero) {
           align-items: center;
 }
 
-.hero, .how_we_started, .get_in_touch {
-  height: 100vh;
+.hero, .services, .how_we_started {
+  min-height: 100vh;
 }
 
 .header {
@@ -224,6 +230,7 @@ section:not(.hero) {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
+  padding: 5em 0;
 }
 
 .hero .logo {
@@ -243,18 +250,30 @@ section:not(.hero) {
   width: calc(100vw - 200px);
 }
 
-.hero .catchphrase hr {
+.hero .catchphrase div {
   background: #9C5634;
   border: none;
-  height: 2px;
+  display: block;
+  height: 5px;
   width: 152px;
+  margin: 0 auto;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  -webkit-animation: fadeIn 2s 1s ease-in-out forwards;
+          animation: fadeIn 2s 1s ease-in-out forwards;
 }
 
 .hero .catchphrase p {
   font-family: 'Karla', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   color: #E3D6C4;
   text-align: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  -webkit-animation: fadeIn 2s ease-in-out forwards;
+          animation: fadeIn 2s ease-in-out forwards;
 }
 
 .hero:before {
@@ -275,23 +294,20 @@ section:not(.hero) {
 .services {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   z-index: 2;
   background-color: #E3D6C4;
   color: #9C5634;
-  padding-bottom: 40px;
+  padding: 5em 0;
+}
+
+.services .header {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.services .header.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .services .service {
@@ -299,6 +315,9 @@ section:not(.hero) {
   text-align: center;
   width: calc(100vw - 100px);
   margin: 50px auto 0 auto;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
 }
 
 .services .service .icon {
@@ -323,6 +342,59 @@ section:not(.hero) {
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 24px;
+}
+
+.services .service.animate {
+  -webkit-animation: fadeIn 1s forwards;
+          animation: fadeIn 1s forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .how_we_started {
@@ -353,8 +425,6 @@ section:not(.hero) {
   background-image: url("images/plant.jpg");
   background-size: cover;
   background-position: 50%;
-  -webkit-transform: translateZ(-2px) scale(3);
-          transform: translateZ(-2px) scale(3);
   opacity: .2;
   -webkit-filter: saturate(50%);
           filter: saturate(50%);
@@ -410,6 +480,10 @@ section:not(.hero) {
   margin: 10px 0;
 }
 
+.technologies .tech_logos .row:not(:nth-child(1)) {
+  padding-left: 70px;
+}
+
 .technologies .tech_logos .row .col {
   height: 75px;
   padding: 10px;
@@ -420,10 +494,23 @@ section:not(.hero) {
   width: auto;
 }
 
+.technologies .tech_logos .row .col img#mysql {
+  height: 60px;
+  width: 100px;
+  margin: 5px 0;
+}
+
+.technologies .tech_logos .row .col img#aws {
+  height: 60px;
+  width: 100px;
+  margin: 20px 0;
+}
+
 .sync {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  padding: 3em 0;
 }
 
 .sync h2 {
@@ -658,7 +745,7 @@ section:not(.hero) {
     font-size: 25px;
   }
   nav ul {
-    padding: 20px 50px !important;
+    padding: 0 50px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -690,10 +777,10 @@ section:not(.hero) {
   nav ul li a::before {
     content: '';
     position: absolute;
-    height: .5px;
+    height: 1px;
     width: 0;
     top: 0;
-    right: 0;
+    left: 0;
     background: #E3D6C4;
     -webkit-transition: width .2s;
     transition: width .2s;
@@ -701,7 +788,7 @@ section:not(.hero) {
   nav ul li a::after {
     content: '';
     position: absolute;
-    height: .5px;
+    height: 1px;
     width: 0;
     bottom: 0;
     left: 0;
@@ -722,9 +809,6 @@ section:not(.hero) {
   .header .text {
     font-size: 30px;
   }
-  section:not(.sync) {
-    height: 100vh;
-  }
   .hero {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -743,36 +827,21 @@ section:not(.hero) {
             flex-direction: column;
     width: 50%;
   }
-  .hero .catchphrase hr {
+  .hero .catchphrase div {
     width: 80%;
-    height: 5px;
     margin: 0 0 20px;
   }
   .hero .catchphrase p {
     text-align: right;
-    font-size: 15px;
+    font-size: 22px;
     letter-spacing: 2px;
+    margin-right: 50px;
   }
   .services {
     padding: 100px 0;
   }
   .services .header {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 100%;
-    padding: 0 12%;
-  }
-  .services .header span {
-    width: 100%;
-    text-align: left;
-  }
-  .services .header .text {
-    font-size: 30px;
-  }
-  .services .header .shadow {
-    font-size: 60px;
-    left: -60px;
-    top: -40px;
+    margin: 40px auto 0 150px;
   }
   .services .row {
     -webkit-box-sizing: border-box;
