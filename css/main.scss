@@ -167,6 +167,11 @@ section:not(.hero) {
 .header {
    margin: 40px auto 0 auto;
    white-space: nowrap;
+   transform: scale(0);
+
+   &.animate {
+      animation: zoomIn 1s forwards;
+   }
 
    .shadow {
       font-size: 30px;
@@ -247,19 +252,17 @@ section:not(.hero) {
    color: #9C5634;
    padding: 5em 0;
 
-   .header {
-      transform: scale(0);
-
-      &.animate {
-         animation: zoomIn 1s forwards;
-      }
-   }
-
    .service {
       font-family: 'Karla', sans-serif;
       text-align: center;
       width: calc(100vw - 100px);
       margin: 50px auto 0 auto;
+
+      transform: scale(0);
+
+      &.animate {
+         animation: zoomIn 1s forwards;
+      }
 
       .icon {
          width: 50px;
@@ -283,35 +286,6 @@ section:not(.hero) {
          letter-spacing: 1px;
          line-height: 24px;
       }
-
-      transform: translateX(-50%);
-      opacity: 0;
-
-      &.animate {
-         animation: fadeIn 1s forwards;
-      }
-   }
-}
-
-@keyframes fadeIn {
-   0% {
-      opacity: 0;
-      transform: translateX(-50%);
-   }
-
-   100% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
-@keyframes zoomIn {
-   0% {
-      transform: scale(0);
-   }
-
-   100% {
-      transform: scale(1);
    }
 }
 
@@ -351,6 +325,12 @@ section:not(.hero) {
          text-align: center;
          line-height: 26px;
          font-size: 14px;
+
+         transform: scale(0);
+   
+         &.animate {
+            animation: zoomIn 1s forwards;
+         }
       }
 
       hr {
@@ -358,6 +338,12 @@ section:not(.hero) {
          border: none;
          height: 4px;
          width: 80%;
+
+         transform: scale(0);
+   
+         &.animate {
+            animation: zoomIn 1s forwards;
+         }
       }
    }
 }
@@ -386,6 +372,12 @@ section:not(.hero) {
          .col {
             height: 75px;
             padding: 10px;
+
+            transform: scale(0);
+      
+            &.animate {
+               animation: zoomIn 1s forwards;
+            }
 
             img {
                height: 100%;
@@ -477,6 +469,11 @@ section:not(.hero) {
          margin: 50px 0 20px;
          width: 80%;
          max-width: 500px;
+         transform: scale(0);
+      
+         &.animate {
+            animation: zoomIn 1s forwards;
+         }
 
          .row {
             display: flex;
@@ -734,5 +731,27 @@ section:not(.hero) {
             }
          }
       }
+   }
+}
+
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+      transform: translateX(-50%);
+   }
+
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+@keyframes zoomIn {
+   0% {
+      transform: scale(0);
+   }
+
+   100% {
+      transform: scale(1);
    }
 }

@@ -206,6 +206,13 @@ section:not(.hero) {
 .header {
   margin: 40px auto 0 auto;
   white-space: nowrap;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.header.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .header .shadow {
@@ -300,24 +307,18 @@ section:not(.hero) {
   padding: 5em 0;
 }
 
-.services .header {
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-
-.services .header.animate {
-  -webkit-animation: zoomIn 1s forwards;
-          animation: zoomIn 1s forwards;
-}
-
 .services .service {
   font-family: 'Karla', sans-serif;
   text-align: center;
   width: calc(100vw - 100px);
   margin: 50px auto 0 auto;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.services .service.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .services .service .icon {
@@ -342,59 +343,6 @@ section:not(.hero) {
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 24px;
-}
-
-.services .service.animate {
-  -webkit-animation: fadeIn 1s forwards;
-          animation: fadeIn 1s forwards;
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes zoomIn {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
 }
 
 .how_we_started {
@@ -443,6 +391,13 @@ section:not(.hero) {
   text-align: center;
   line-height: 26px;
   font-size: 14px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.how_we_started .subtext p.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .how_we_started .subtext hr {
@@ -450,6 +405,13 @@ section:not(.hero) {
   border: none;
   height: 4px;
   width: 80%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.how_we_started .subtext hr.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .technologies {
@@ -487,6 +449,13 @@ section:not(.hero) {
 .technologies .tech_logos .row .col {
   height: 75px;
   padding: 10px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.technologies .tech_logos .row .col.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .technologies .tech_logos .row .col img {
@@ -597,6 +566,13 @@ section:not(.hero) {
   margin: 50px 0 20px;
   width: 80%;
   max-width: 500px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.get_in_touch .contacts form.animate {
+  -webkit-animation: zoomIn 1s forwards;
+          animation: zoomIn 1s forwards;
 }
 
 .get_in_touch .contacts form .row {
@@ -889,6 +865,54 @@ section:not(.hero) {
   }
   .get_in_touch .contacts form .row input:nth-child(1) {
     margin-right: 3px;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 /*# sourceMappingURL=main.css.map */
