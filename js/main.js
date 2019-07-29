@@ -11,8 +11,9 @@ window.onload = () => {
    const nav = document.querySelector('nav')
    const links = document.querySelectorAll('nav ul li a')
    const logo = nav.querySelector('.logo')
-
    const elemsAnimation = document.querySelectorAll('.on-delay-animation')
+
+   const widthBreakpoint = 910
 
    const isInViewport = (elem) => {
       var bounding = elem.getBoundingClientRect();
@@ -22,14 +23,14 @@ window.onload = () => {
    };
 
    const checkWindowWidth = () => {
-      if (window.innerWidth < 768)
+      if (window.innerWidth < widthBreakpoint)
          logo.style.display = "none"
       else
          logo.style.display = "block"
    }
 
    const toggleNavClasses = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < widthBreakpoint) {
          line1.classList.toggle('rotatefirst')
          line2.classList.toggle('maincss_hide')
          line3.classList.toggle('rotatesecond')

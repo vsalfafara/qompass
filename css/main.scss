@@ -46,7 +46,7 @@ body {
    bottom: 0;
 }
 
-.line:nth-child(2).hide {
+.line:nth-child(2).maincss_hide {
    margin-left: 30px;
    opacity: 0;
    visibility: hidden;
@@ -98,7 +98,7 @@ nav {
    }
 }
 
-nav.show {
+nav.maincss_show {
    box-shadow: -10px 0 200px #000;
    transform: translateX(-100%) !important;
 }
@@ -449,6 +449,7 @@ section:not(.hero) {
    box-sizing: border-box;
    background-color: #9D8159;
    color: #E3D6C4;
+   padding: 5em 0;
 
    .contacts {
       display: flex;
@@ -553,7 +554,7 @@ section:not(.hero) {
    }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 910px) {
 
    .menu {
       display: none;
@@ -565,7 +566,7 @@ section:not(.hero) {
 
    nav {
       padding: 0;
-      width: calc(100% - 17px);
+      width: 100%;
       left: 0;
       transition: 0s;
       height: auto;
@@ -673,7 +674,7 @@ section:not(.hero) {
       padding: 100px 0;
       
       .header {
-         margin: 40px auto 0 150px;
+         margin: 40px auto;
       }
 
       .row {
