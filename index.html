@@ -186,25 +186,33 @@
             <p>+63 977 684 6025</p>
             <p>info@iqompass.com</p>
             <p>www.iqompass.com</p>
-            <form action="" class="on-delay-animation">
-               <div class="overlay">
-                  <h1>Under Construction</h1>
-               </div>
+            <form class="on-delay-animation">
                <div class="input-text">
                   <div class="row">
-                     <input type="text" placeholder="first name">
-                     <input type="text" placeholder="last name">
+                     <input type="text" name="first-name" placeholder="first name">
+                     <input type="text" name="last-name" placeholder="last name">
                   </div>
                   <div class="row">
-                     <input type="email" placeholder="email">
-                     <input type="tel" placeholder="mobile">
+                     <input type="email" name="email" placeholder="email">
+                     <input type="text" name="phone" placeholder="mobile">
                   </div>
                </div>
                <textarea rows="10" placeholder="message"></textarea>
                <input type="submit" id="submit" value="submit">
             </form>
          </div>
+         <div class="overlay">
+            <div class="lds-facebook">
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         </div>
+         <span class="snackbar success">Email sent!</span>
+         <span class="snackbar fail">Email not sent. Bummer... Please wait for a fix</span>
+         <span class="snackbar prevent">Please fill up the form!</span>
       </section>
+
    </main>
    <script src="js/main.js"></script>
 </body>
