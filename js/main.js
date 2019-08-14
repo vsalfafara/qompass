@@ -118,6 +118,7 @@ window.onload = () => {
          body: email
       }).then(res => {
          toggleOverlay(success)
+         form.reset()
       }).catch(err => {
          toggleOverlay(fail)
       })
